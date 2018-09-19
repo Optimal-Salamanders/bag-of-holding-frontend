@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Bag of Holding</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,19 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Bag of Holding</h1>
+      <form action="/profile" method="post" enctype="multipart/form-data" id="upload-form">
+        <fieldset>
+          <legend>Image uploader</legend>
+          <input type ="text" name="title" placeholder ="file name">
+          <input type="file" name="image" />
+          <button type="submit" value="Upload" id="upload-form">submit</button>
+        </fieldset>
+      </form>
+
+      <form>
+        <button type="submit" value="Upload" id="upload-form2">submit</button>
+      </form>
+
     </body>
 </html>
