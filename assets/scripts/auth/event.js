@@ -3,6 +3,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api.js')
 const ui = require('./ui.js')
 
+// function to handle sign up event
 const onSignUpEvent = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -11,6 +12,7 @@ const onSignUpEvent = function (event) {
     .catch(ui.onSignUpFailure)
 }
 
+// function to handle signin event
 const onSignInEvent = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -19,6 +21,7 @@ const onSignInEvent = function (event) {
     .catch(ui.onSignInFailure)
 }
 
+// function to handle signout event
 const onSignOutEvent = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -27,6 +30,7 @@ const onSignOutEvent = function (event) {
     .catch(ui.onSignOutFailure)
 }
 
+// function to handle password change event
 const onPasswordChangeEvent = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
