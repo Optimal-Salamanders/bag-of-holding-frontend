@@ -17,6 +17,10 @@ const onSignUpFailure = function () {
 // function to handle sign in success
 const onSignInSuccess = function (response) {
   clearForms()
+  // Hide signed-in forms
+  $('.logged-in-forms').show()
+  // Hide logged-out forms
+  $('.logged-out-forms').hide()
 
   // Store the API's response in store.js
   store.user = response.user
