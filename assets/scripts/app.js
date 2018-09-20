@@ -1,31 +1,17 @@
 'use strict'
 
-const config = require('./config.js')
-
-// use require with a reference to bundle the file and use it in this file
-// const example = require('./example')
-
-// use require without a reference to ensure a file is bundled
-// require('./example')
+// const config = require('./config.js')
+// const auth = require('./auth/event.js')
+// const store = require('./store.js')
+const authEvents = require('./auth/event.js')
+const uploadEvents = require('./upload/event.js')
 
 $(() => {
-  $('#upload-form').on('submit', function(event){
-    event.preventDefault()
-    const data = new FormData(event.target)
-    console.log(data)
+  // Hide signed-in forms
+  $('.logged-in-forms').hide()
 
-    $.ajax({
-      method: 'POST',
-      url: config.apiUrl + '/uploads',
-      processData: false,
-      contentType: false,
-      data: data
-    })
-    .then((response) => {
-      console.log(response)
-    })
-    .catch((response) => {
-      console.log(response)
-    })
-  })
+  authEvents.handlers()
+
+  uploadEvents.handlers()
+
 })
