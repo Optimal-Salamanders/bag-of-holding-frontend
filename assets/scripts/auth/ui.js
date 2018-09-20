@@ -1,7 +1,7 @@
 'use strict'
 
 const store = require('./../store.js')
-const display = require('./display.js')
+const display = require('./../display.js')
 
 // function to handle sign up success
 const onSignUpSuccess = function () {
