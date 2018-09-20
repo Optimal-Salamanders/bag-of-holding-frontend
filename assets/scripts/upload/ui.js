@@ -7,7 +7,7 @@ const onUploadCreateFailure = function () {}
 
 const onGetUploadsSuccess = function (data) {
   console.log('data is', data)
-  $('#display').html(data)
+  $('.display').append(data)
 }
 
 const onGetUploadsFailure = function () {}
