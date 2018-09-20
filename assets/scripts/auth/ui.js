@@ -1,26 +1,27 @@
 'use strict'
 
 const store = require('./../store.js')
+const display = require('./display.js')
 
 // function to handle sign up success
 const onSignUpSuccess = function () {
-  // clearForms()
+  clearForms()
 
   $('#message').html('Account successfully created! Please sign in to upload files!')
 }
 // function to handle sign up failure
 const onSignUpFailure = function () {
-  // clearForms()
+  clearForms()
 
   $('#message').html('Unable to create an account. Double check your info.')
 }
 // function to handle sign in success
 const onSignInSuccess = function (response) {
+  // Clear all inputs
   clearForms()
-  $('.logged-in-forms').show()
-  $('.logged-out-forms').hide()
-  // Show main page wrapper
-  $('#main-wrapper').show()
+
+  // Show signed-in elements
+  display.showSignedIn()
 
   // Store the API's response in store.js
   store.user = response.user
@@ -35,15 +36,11 @@ const onSignInFailure = function () {
 }
 // function to handle sign out success
 const onSignOutSuccess = function () {
+  // Clear all inputs
   clearForms()
 
-  // Hide signed-in forms
-  $('.logged-in-forms').hide()
-  // Hide logged-out forms
-  $('.logged-out-forms').show()
-
-  // Hide main page wrapper
-  $('#main-wrapper').hide()
+  // Hide signed-in elements
+  display.showSignedOut()
 
   $('#message').html('Successfully signed out!')
 }
