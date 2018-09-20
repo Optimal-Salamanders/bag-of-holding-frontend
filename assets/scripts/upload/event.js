@@ -13,8 +13,12 @@ const onUploadCreate = function (event) {
     .catch(ui.onUploadCreateFailure)
 }
 
-const onGetUploads = function () {
+const onGetUploads = function (event) {
+  event.preventDefault()
 
+  api.getUploads(event)
+    .then(ui.onGetUploadsSuccess)
+    .catch(ui.onGetUploadsFailure)
 }
 
 const handlers = () => {
@@ -26,5 +30,6 @@ const handlers = () => {
 
 module.exports = {
   onUploadCreate,
+  onGetUploads,
   handlers
 }

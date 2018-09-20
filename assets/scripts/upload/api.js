@@ -16,6 +16,17 @@ const uploadCreate = function (data) {
   })
 }
 
+const getUploads = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/uploads',
+    method: 'GET',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
-  uploadCreate
+  uploadCreate,
+  getUploads
 }
