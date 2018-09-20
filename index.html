@@ -57,21 +57,25 @@
       <!-- Error message Auth -->
       <div id="message"></div>
 
-      <!-- Upload file form -->
-      <form action="/uploads" method="post" enctype="multipart/form-data" id="upload-form">
-        <fieldset>
-          <legend>Image uploader</legend>
-          <input type ="text" name="title" placeholder ="file name">
-          <input type ="text" name="tag" placeholder ="file tag">
-          <input type="file" name="image">
-          <button type="submit" value="Upload">submit</button>
-        </fieldset>
-      </form>
-      <div>
-      <button id="index" type="button" class="btn-small btn-primary hidden">Show</button></div>
+      <!-- Main signed-in wrapper -->
+      <div id="main-wrapper">
 
-      <div class="display"></div>
+        <!-- Upload file form -->
+        <form action="/uploads" method="post" enctype="multipart/form-data" id="upload-form">
+          <fieldset>
+            <legend>Image uploader</legend>
+            <input type ="text" name="title" placeholder ="file name">
+            <input type ="text" name="tag" placeholder ="file tag">
+            <input type="file" name="image">
+            <button type="submit" value="Upload">submit</button>
+          </fieldset>
+        </form>
 
+       // Display uploads 
+       <div class="display"></div>
+        
+      <!-- end main wrapper   -->
+      </div>
 
 
     </body>
