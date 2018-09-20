@@ -5,7 +5,7 @@
 // const store = require('./store.js')
 const authEvents = require('./auth/event.js')
 const uploadEvents = require('./upload/event.js')
-const display = require('./auth/display.js')
+const display = require('./display.js')
 
 $(() => {
 

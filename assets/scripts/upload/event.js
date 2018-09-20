@@ -7,10 +7,9 @@ const ui = require('./ui.js')
 const onUploadCreate = function (event) {
   event.preventDefault()
   const data = new FormData(event.target)
-
   api.uploadCreate(data)
     .then(ui.onUploadCreateSuccess)
-    .catch(ui.onUploadCreateFailure)
+    .catch(ui.failure)
 }
 
 const onGetUploads = function () {
@@ -18,9 +17,7 @@ const onGetUploads = function () {
 }
 
 const handlers = () => {
-  // listener for upload form
   $('#upload-form').on('submit', onUploadCreate)
-  // index function event
   $('#index').on('click', onGetUploads)
 }
 
