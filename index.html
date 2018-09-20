@@ -58,11 +58,12 @@
       <div id="message"></div>
 
       <!-- Upload file form -->
-      <form action="/profile" method="post" enctype="multipart/form-data" id="upload-form">
+      <form action="/uploads" method="post" enctype="multipart/form-data" id="upload-form">
         <fieldset>
           <legend>Image uploader</legend>
           <input type ="text" name="title" placeholder ="file name">
-          <input type="file" name="image" />
+          <input type ="text" name="tag" placeholder ="file tag">
+          <input type="file" name="image">
           <button type="submit" value="Upload">submit</button>
         </fieldset>
       </form>

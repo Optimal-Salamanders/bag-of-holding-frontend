@@ -2,6 +2,7 @@
 
 const config = require('./config.js')
 const auth = require('./auth/event.js')
+const store = require('./store.js')
 
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
@@ -27,14 +28,18 @@ $(() => {
 
   $('#upload-form').on('submit', function (event) {
     event.preventDefault()
+    console.log('event dot target is ', event.target)
     const data = new FormData(event.target)
-    console.log(data)
+    console.log('data is ', data)
 
     $.ajax({
       method: 'POST',
       url: config.apiUrl + '/uploads',
       processData: false,
       contentType: false,
+      headers: {
+        'Authorization': 'Token token=' + store.user.token
+      },
       data: data
     })
       .then((response) => {
