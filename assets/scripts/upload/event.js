@@ -13,6 +13,18 @@ const onUploadCreate = function (event) {
     .catch(ui.onUploadCreateFailure)
 }
 
+const onGetUploads = function () {
+
+}
+
+const handlers = () => {
+  // listener for upload form
+  $('#upload-form').on('submit', onUploadCreate)
+  // index function event
+  $('#index').on('click', onGetUploads)
+}
+
 module.exports = {
-  onUploadCreate
+  onUploadCreate,
+  handlers
 }
