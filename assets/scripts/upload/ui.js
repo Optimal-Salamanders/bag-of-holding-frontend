@@ -2,7 +2,7 @@
 
 const display = require('./../display.js')
 
-const getUploadsSuccess = (data) => {
+const onUploadCreateSuccess = (data) => {
   display.clearForms()
 }
 
@@ -11,6 +11,6 @@ const failure = (data) => {
 }
 
 module.exports = {
-  getUploadsSuccess,
+  onUploadCreateSuccess,
   failure
 }
