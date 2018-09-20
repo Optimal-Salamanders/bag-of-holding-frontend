@@ -70,7 +70,30 @@
             <button type="submit" value="Upload">submit</button>
           </fieldset>
         </form>
+        <!-- button to display file uploads -->
 
+          <form id="index">
+            <legend>View Files</legend>
+            <button type="button" class="btn-small btn-primary" value="index">View</button>
+          </form>
+
+          <!-- button to delete item with field -->
+        <form id="delete">
+          <fieldset>
+            <legend>Delete File</legend>
+          <input class="delete-input" type ="id" name="upload[id]" placeholder="Upload ID">
+          <button type="submit" class="btn-small btn-primary" value="delete">Delete file</button>
+          </fieldset>
+        </form>
+        <!-- form fields for updates for now -->
+        <form id="update">
+          <fieldset>
+            <legend>Update title and tag</legend>
+            <input type ="text" name="title" placeholder ="file name">
+            <input type ="text" name="tag" placeholder ="file tag">
+            <button type="submit" value="Update">submit</button>
+          </fieldset>
+        </form>
        <!-- Display uploads  -->
        <div class="display"></div>
 
