@@ -26,7 +26,18 @@ const getUploads = function (data) {
   })
 }
 
+const deleteUpload = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/uploads/' + data.upload.id,
+    method: 'DELETE',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   uploadCreate,
-  getUploads
+  getUploads,
+  deleteUpload
 }

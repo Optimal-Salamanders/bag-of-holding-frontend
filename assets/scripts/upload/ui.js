@@ -18,10 +18,22 @@ const onGetUploadsSuccess = function (data) {
   $('.display').append(showFileListing)
 }
 
-const onGetUploadsFailure = function () {}
+const onGetUploadsFailure = function () {
+  $('.message').html('Unable to show files.')
+}
 
+const onDeleteUploadSuccess = function () {
+  $('.message').html('Item Successfully Deleted')
+}
+
+const onDeleteUploadFailure = function () {
+  $('.message').html('Delete went wrong')
+}
 module.exports = {
   onUploadCreateSuccess,
   failure,
-  onGetUploadsSuccess
+  onGetUploadsSuccess,
+  onGetUploadsFailure,
+  onDeleteUploadSuccess,
+  onDeleteUploadFailure
 }

@@ -1,6 +1,6 @@
 'use strict'
 
-// const getFormFields = require('../../../lib/get-form-fields')
+const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api.js')
 const ui = require('./ui.js')
 
@@ -20,13 +20,26 @@ const onGetUploads = function (event) {
     .catch(ui.onGetUploadsFailure)
 }
 
+const onDeleteUpload = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+
+  console.log('delete data is ', data)
+
+  api.deleteUpload(data)
+    .then(ui.onDeleteUploadSuccess)
+    .catch(ui.onDeleteUploadFailure)
+}
+
 const handlers = () => {
   $('#upload-form').on('submit', onUploadCreate)
   $('#index').on('click', onGetUploads)
+  $('#delete').on('submit', onDeleteUpload)
 }
 
 module.exports = {
   onUploadCreate,
   onGetUploads,
+  onDeleteUpload,
   handlers
 }

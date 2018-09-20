@@ -8,7 +8,6 @@ const uploadEvents = require('./upload/event.js')
 const display = require('./display.js')
 
 $(() => {
-
   // Hide main elements
   display.initialHide()
 
@@ -17,5 +16,4 @@ $(() => {
 
   // Upload button handlers
   uploadEvents.handlers()
-
 })
