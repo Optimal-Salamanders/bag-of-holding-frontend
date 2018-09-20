@@ -14,7 +14,7 @@
     <body>
       <h1>Bag of Holding</h1>
 
-      <div>
+      <div class="logged-out-forms">
         <!-- Sign up form -->
         <div>
           <form id="sign-up" class="form-auth">
@@ -40,8 +40,7 @@
 
       </div>
 
-
-      <div>
+      <div class="logged-in-forms">
         <!-- Change pw -->
         <form id="password-change">
           <fieldset>
@@ -55,10 +54,8 @@
         <button id="sign-out" type="submit" class="btn-small btn-danger hidden">Logout</button>
       </div>
 
-
       <!-- Error message Auth -->
       <div id="message"></div>
-
 
       <!-- Upload file form -->
       <form action="/profile" method="post" enctype="multipart/form-data" id="upload-form">

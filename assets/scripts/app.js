@@ -12,6 +12,10 @@ const auth = require('./auth/event.js')
 //
 
 $(() => {
+
+  // Hide signed-in forms
+  $('.logged-in-forms').hide()
+
   // listens for sign-up event
   $('#sign-up').on('submit', auth.onSignUpEvent)
   // listens for sign-in event
