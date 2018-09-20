@@ -4,13 +4,13 @@ const store = require('./../store.js')
 
 // function to handle sign up success
 const onSignUpSuccess = function () {
-  clearForms()
+  // clearForms()
 
   $('#message').html('Account successfully created! Please sign in to upload files!')
 }
 // function to handle sign up failure
 const onSignUpFailure = function () {
-  clearForms()
+  // clearForms()
 
   $('#message').html('Unable to create an account. Double check your info.')
 }
@@ -19,6 +19,8 @@ const onSignInSuccess = function (response) {
   clearForms()
   $('.logged-in-forms').show()
   $('.logged-out-forms').hide()
+  // Show main page wrapper
+  $('#main-wrapper').show()
 
   // Store the API's response in store.js
   store.user = response.user
@@ -39,6 +41,9 @@ const onSignOutSuccess = function () {
   $('.logged-in-forms').hide()
   // Hide logged-out forms
   $('.logged-out-forms').show()
+
+  // Hide main page wrapper
+  $('#main-wrapper').hide()
 
   $('#message').html('Successfully signed out!')
 }
