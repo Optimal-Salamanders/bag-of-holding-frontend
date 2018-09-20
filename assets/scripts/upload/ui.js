@@ -1,9 +1,15 @@
 'use strict'
+
 // const store = require('../store.js')
+const display = require('./../display.js')
 
-const onUploadCreateSuccess = function () {}
+const onUploadCreateSuccess = (data) => {
+  display.clearForms()
+}
 
-const onUploadCreateFailure = function () {}
+const failure = (data) => {
+  display.clearForms()
+}
 
 const onGetUploadsSuccess = function (data) {
   console.log('data is', data)
@@ -14,7 +20,6 @@ const onGetUploadsFailure = function () {}
 
 module.exports = {
   onUploadCreateSuccess,
-  onUploadCreateFailure,
-  onGetUploadsSuccess,
-  onGetUploadsFailure
+  failure,
+  onGetUploadsSuccess
 }
