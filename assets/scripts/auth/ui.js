@@ -1,5 +1,7 @@
 'use strict'
 
+const store = require('./../store.js')
+
 // function to handle sign up success
 const onSignUpSuccess = function () {
   $('#message').html('Account successfully created! Please sign in to upload files!')
@@ -10,6 +12,9 @@ const onSignUpFailure = function () {
 }
 // function to handle sign in success
 const onSignInSuccess = function (response) {
+  // Store the API's response in store.js
+  store.user = response.user
+
   $('#message').html('You have successfully signed in!')
 }
 // function to handle sign in failure
