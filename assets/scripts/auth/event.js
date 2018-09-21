@@ -2,14 +2,25 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api.js')
 const ui = require('./ui.js')
+const store = require('../store.js')
 
 // function to handle sign up event
 const onSignUpEvent = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  store.credentials = data
   api.signUp(data)
-    .then(ui.onSignUpSuccess)
+    .then(onSignUpIn)
     .catch(ui.onSignUpFailure)
+}
+// function to handle sign up and sign in
+// Note Datawithout PC being drawn from store.credentials
+const onSignUpIn = function (event) {
+  delete store.credentials.password_confirmation
+  const dataWithoutPC = store.credentials
+  api.signIn(dataWithoutPC)
+    .then(ui.onSignInSuccess)
+    .catch(ui.onSignInFailure)
 }
 
 // function to handle signin event
@@ -51,5 +62,6 @@ module.exports = {
   onSignInEvent,
   onSignOutEvent,
   onPasswordChangeEvent,
+  onSignUpIn,
   handlers
 }
