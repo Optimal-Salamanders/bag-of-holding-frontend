@@ -17,6 +17,15 @@ const failure = (data) => {
 
 const onGetUploadsSuccess = function (data) {
   $('.display-all').html('')
+  // const test = new Date(data.uploads[0].createdAt)
+  // console.log('date parsed is, ', test)
+  data.uploads.map(x => {
+    const createDate = new Date(x.createdAt).toString()
+    const updateDate = new Date(x.updatedAt).toString()
+    x.createdAt = createDate.substring(0, createDate.indexOf('G'))
+    x.updatedAt = updateDate.substring(0, updateDate.indexOf('G'))
+  })
+
   const showFileListing = fileListing({files: data.uploads})
   $('.display-all').append(showFileListing)
   clearForms()
@@ -33,7 +42,6 @@ const onGetUploadsSuccess = function (data) {
 
   const showUserFileListing = fileListingUser({files: ownerUploads})
   $('.display-user').append(showUserFileListing)
-
 }
 
 const onGetUploadsFailure = function () {
@@ -63,6 +71,10 @@ const onUpdateUploadFailure = function () {
 
 const clearForms = () => {
   $('input').val('')
+}
+
+const convertDate = function (date) {
+
 }
 module.exports = {
   onUploadCreateSuccess,
