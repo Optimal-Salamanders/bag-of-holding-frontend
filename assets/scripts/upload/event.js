@@ -39,6 +39,8 @@ const onUpdateUpload = function (event) {
   console.log('update data is ', data)
 
   api.updateUpload(data)
+    .then(api.getUploads)
+    .then(ui.onGetUploadsSuccess)
     .then(ui.onUpdateUploadSuccess)
     .catch(ui.onUpdateUploadFailure)
 }
