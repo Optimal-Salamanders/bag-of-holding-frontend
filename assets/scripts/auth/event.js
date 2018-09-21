@@ -16,7 +16,6 @@ const onSignUpEvent = function (event) {
 // function to handle sign up and sign in
 // Note Datawithout PC being drawn from store.credentials
 const onSignUpIn = function (event) {
-  // event.preventDefault()
   delete store.credentials.password_confirmation
   const dataWithoutPC = store.credentials
   api.signIn(dataWithoutPC)
