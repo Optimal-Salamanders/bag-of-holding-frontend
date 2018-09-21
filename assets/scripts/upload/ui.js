@@ -36,7 +36,7 @@ const onDeleteUploadFailure = function () {
   clearForms()
 }
 const onUpdateUploadSuccess = function () {
-  $('.display').html('')
+  // $('.display').html('')
   $('#message').html('Item Successfully Updated')
   clearForms()
 }
