@@ -1,0 +1,26 @@
+{{#if files.length}}
+{{#each files as |file|}}
+
+
+    <section data-id="{{file._id}}" class="container-fluid">
+      <div class="card text-center text-white bg-primary mb-1">
+          <div class="card-header">
+            <h2 class="topic">TITLE: {{file.title}}</h2>
+          </div>
+
+      <div class="card-body">
+        <p class="card-text">TAG: {{file.tag}}</p>
+      </div>
+      <div>By: {{file.owner}}</div>
+      <div>File ID: {{file._id}}</div>
+      <div><a href="{{file.url}}" target="_blank"><button class='btn btn-secondary'>DOWNLOAD</button></a></div>
+      <div class="card-footer">
+        <button type="button" class="delete class='btn btn-light">Delete</button>
+        <button type="button" class="update class='btn btn-light">Update</button>
+      </div>
+    </div>
+  </section>
+{{/each}}
+{{else}}
+<p>There are no files</p>
+{{/if}}

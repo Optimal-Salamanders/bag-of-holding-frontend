@@ -3,6 +3,7 @@
 const store = require('../store.js')
 // const display = require('./../display.js')
 const fileListing = require('./file-listing.handlebars')
+const fileListingUser = require('./file-listing-user.handlebars')
 
 const onUploadCreateSuccess = (data) => {
   $('#message').html('Item Successfully Uploaded')
@@ -20,9 +21,9 @@ const onGetUploadsSuccess = function (data) {
   $('.display-all').append(showFileListing)
   clearForms()
 
-  console.log('data dot uploads is ', data.uploads)
   console.log('store user id is ', store.user._id)
 
+  // Check for owner
   for (let i = 0; i < data.uploads.length; i++) {
     console.log('data uploads owner is ', data.uploads[i].owner)
 
@@ -30,6 +31,10 @@ const onGetUploadsSuccess = function (data) {
 
     }
   }
+
+  // Display only owner's data
+  const showUserFileListing = fileListingUser({files: data.uploads})
+  $('.display-user').append(showUserFileListing)
 
 }
 
