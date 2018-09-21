@@ -5,13 +5,15 @@
 // const store = require('./store.js')
 const authEvents = require('./auth/event.js')
 const uploadEvents = require('./upload/event.js')
+const display = require('./display.js')
 
 $(() => {
-  // Hide signed-in forms
-  $('.logged-in-forms').hide()
+  // Hide main elements
+  display.initialHide()
 
+  // Auth button handlers
   authEvents.handlers()
 
+  // Upload button handlers
   uploadEvents.handlers()
-
 })

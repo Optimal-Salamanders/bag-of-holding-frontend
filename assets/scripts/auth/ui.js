@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./../store.js')
+const display = require('./../display.js')
 
 // function to handle sign up success
 const onSignUpSuccess = function () {
@@ -16,9 +17,11 @@ const onSignUpFailure = function () {
 }
 // function to handle sign in success
 const onSignInSuccess = function (response) {
+  // Clear all inputs
   clearForms()
-  $('.logged-in-forms').show()
-  $('.logged-out-forms').hide()
+
+  // Show signed-in elements
+  display.showSignedIn()
 
   // Store the API's response in store.js
   store.user = response.user
@@ -33,12 +36,11 @@ const onSignInFailure = function () {
 }
 // function to handle sign out success
 const onSignOutSuccess = function () {
+  // Clear all inputs
   clearForms()
 
-  // Hide signed-in forms
-  $('.logged-in-forms').hide()
-  // Hide logged-out forms
-  $('.logged-out-forms').show()
+  // Hide signed-in elements
+  display.showSignedOut()
 
   $('#message').html('Successfully signed out!')
 }
