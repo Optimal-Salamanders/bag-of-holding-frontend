@@ -20,10 +20,10 @@ const onGetUploadsSuccess = function (data) {
   // const test = new Date(data.uploads[0].createdAt)
   // console.log('date parsed is, ', test)
   data.uploads.map(x => {
-    const yay = new Date(x.createdAt).toString()
-    const yay2 = new Date(x.updatedAt).toString()
-    x.createdAt = yay.substring(0, yay.indexOf('G'))
-    x.updatedAt = yay2.substring(0, yay2.indexOf('G'))
+    const createDate = new Date(x.createdAt).toString()
+    const updateDate = new Date(x.updatedAt).toString()
+    x.createdAt = createDate.substring(0, createDate.indexOf('G'))
+    x.updatedAt = updateDate.substring(0, updateDate.indexOf('G'))
   })
 
   const showFileListing = fileListing({files: data.uploads})
