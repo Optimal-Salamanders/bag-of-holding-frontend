@@ -19,6 +19,12 @@ const onGetUploadsSuccess = function (data) {
   const showFileListing = fileListing({files: data.uploads})
   $('.display-all').append(showFileListing)
   clearForms()
+
+  console.log('data dot uploads is ', data.uploads)
+  for (let i = 0; i < data.uploads.length; i++) {
+    console.log('data owner is ', data.uploads[i]._id)
+  }
+
 }
 
 const onGetUploadsFailure = function () {
