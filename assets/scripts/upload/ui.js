@@ -21,19 +21,17 @@ const onGetUploadsSuccess = function (data) {
   $('.display-all').append(showFileListing)
   clearForms()
 
-  console.log('store user id is ', store.user._id)
+  const ownerUploads = []
 
   // Check for owner
   for (let i = 0; i < data.uploads.length; i++) {
-    console.log('data uploads owner is ', data.uploads[i].owner)
-
+    // Display only owner's data
     if (data.uploads[i].owner === store.user._id) {
-
+      ownerUploads.push(data.uploads[i])
     }
   }
 
-  // Display only owner's data
-  const showUserFileListing = fileListingUser({files: data.uploads})
+  const showUserFileListing = fileListingUser({files: ownerUploads})
   $('.display-user').append(showUserFileListing)
 
 }
