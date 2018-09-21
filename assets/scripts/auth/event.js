@@ -8,17 +8,15 @@ const store = require('../store.js')
 const onSignUpEvent = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  // store.credentials = data
+  store.credentials = data
   api.signUp(data)
-    // .then(onSignUpIn)
-    .then(ui.onSignUpSuccess)
+    .then(onSignUpIn)
     .catch(ui.onSignUpFailure)
 }
 // function to handle sign up and sign in
 // Note Datawithout PC being drawn from store.credentials
 const onSignUpIn = function (event) {
-  // event.preventDefault()
-  // delete store.credentials.password_confirmation
+  delete store.credentials.password_confirmation
   const dataWithoutPC = store.credentials
   api.signIn(dataWithoutPC)
     .then(ui.onSignInSuccess)
