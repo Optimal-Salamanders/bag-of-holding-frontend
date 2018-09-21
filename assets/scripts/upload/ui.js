@@ -17,8 +17,6 @@ const failure = (data) => {
 
 const onGetUploadsSuccess = function (data) {
   $('.display-all').html('')
-  // const test = new Date(data.uploads[0].createdAt)
-  // console.log('date parsed is, ', test)
   data.uploads.map(x => {
     const createDate = new Date(x.createdAt).toString()
     const updateDate = new Date(x.updatedAt).toString()
@@ -73,9 +71,6 @@ const clearForms = () => {
   $('input').val('')
 }
 
-const convertDate = function (date) {
-
-}
 module.exports = {
   onUploadCreateSuccess,
   failure,
