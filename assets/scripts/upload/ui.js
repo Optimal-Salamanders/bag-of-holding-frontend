@@ -15,9 +15,9 @@ const failure = (data) => {
 }
 
 const onGetUploadsSuccess = function (data) {
-  $('.display').html('')
+  $('.display-all').html('')
   const showFileListing = fileListing({files: data.uploads})
-  $('.display').append(showFileListing)
+  $('.display-all').append(showFileListing)
   clearForms()
 }
 
