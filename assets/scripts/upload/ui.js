@@ -1,8 +1,9 @@
 'use strict'
 
-// const store = require('../store.js')
+const store = require('../store.js')
 // const display = require('./../display.js')
 const fileListing = require('./file-listing.handlebars')
+const fileListingUser = require('./file-listing-user.handlebars')
 
 const onUploadCreateSuccess = (data) => {
   $('#message').html('Item Successfully Uploaded')
@@ -15,10 +16,24 @@ const failure = (data) => {
 }
 
 const onGetUploadsSuccess = function (data) {
-  $('.display').html('')
+  $('.display-all').html('')
   const showFileListing = fileListing({files: data.uploads})
-  $('.display').append(showFileListing)
+  $('.display-all').append(showFileListing)
   clearForms()
+
+  const ownerUploads = []
+
+  // Check for owner
+  for (let i = 0; i < data.uploads.length; i++) {
+    // Display only owner's data
+    if (data.uploads[i].owner === store.user._id) {
+      ownerUploads.push(data.uploads[i])
+    }
+  }
+
+  const showUserFileListing = fileListingUser({files: ownerUploads})
+  $('.display-user').append(showUserFileListing)
+
 }
 
 const onGetUploadsFailure = function () {
