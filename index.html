@@ -64,8 +64,8 @@
         <form action="/uploads" method="post" enctype="multipart/form-data" id="upload-form">
           <fieldset>
             <legend>Image uploader</legend>
-            <input type ="text" name="title" pattern="[a-zA-Z0-9-]+" placeholder ="file name" required>
-            <input type ="text" name="tag" pattern="[a-zA-Z0-9-]+" placeholder ="file tag">
+            <input type ="text" name="title" pattern="[a-zA-Z0-9-\s]+" placeholder ="file name" required>
+            <input type ="text" name="tag" pattern="[a-zA-Z0-9-\s]+" placeholder ="file tag">
             <input type="file" name="image">
             <button type="submit" value="Upload">submit</button>
           </fieldset>
@@ -81,7 +81,7 @@
         <form id="delete">
           <fieldset>
             <legend>Delete File</legend>
-          <input class="delete-input" type ="id" pattern="[a-zA-Z0-9-]+" name="upload[id]" placeholder="Upload ID">
+          <input class="delete-input" type ="id" pattern="[a-zA-Z0-9-\s]+" name="upload[id]" placeholder="Upload ID">
           <button type="submit" class="btn-small btn-primary" value="delete">Delete file</button>
           </fieldset>
         </form>
@@ -89,9 +89,9 @@
         <form id="update">
           <fieldset>
             <legend>Update title and tag</legend>
-            <input type ="text" pattern="[a-zA-Z0-9-]+" name="upload[title]" placeholder ="file name">
-            <input type ="text" pattern="[a-zA-Z0-9-]+" name="upload[tag]" placeholder ="file tag">
-            <input type ="text" pattern="[a-zA-Z0-9-]+" name="upload[id]" placeholder ="item ID">
+            <input type ="text" pattern="[a-zA-Z0-9-\s]+" name="upload[title]" placeholder ="file name">
+            <input type ="text" pattern="[a-zA-Z0-9-\s]+" name="upload[tag]" placeholder ="file tag">
+            <input type ="text" pattern="[a-zA-Z0-9-\s]+" name="upload[id]" placeholder ="item ID">
             <button type="submit" value="Update">submit</button>
           </fieldset>
         </form>

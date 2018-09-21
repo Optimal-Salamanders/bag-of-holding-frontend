@@ -28,6 +28,8 @@ const onDeleteUpload = function (event) {
   console.log('delete data is ', data)
 
   api.deleteUpload(data)
+    .then(api.getUploads)
+    .then(ui.onGetUploadsSuccess)
     .then(ui.onDeleteUploadSuccess)
     .catch(ui.onDeleteUploadFailure)
 }
