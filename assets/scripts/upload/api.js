@@ -3,6 +3,7 @@
 const config = require('../config.js')
 const store = require('../store.js')
 
+// ajax call to API for new file uploads
 const uploadCreate = function (data) {
   return $.ajax({
     method: 'POST',
@@ -15,7 +16,7 @@ const uploadCreate = function (data) {
     data: data
   })
 }
-
+// ajax call to API for file index
 const getUploads = function (data) {
   return $.ajax({
     url: config.apiUrl + '/uploads',
@@ -25,7 +26,7 @@ const getUploads = function (data) {
     }
   })
 }
-
+// ajax call for API delete with ID
 const deleteUpload = function (data) {
   return $.ajax({
     url: config.apiUrl + '/uploads/' + data.upload.id,
@@ -35,9 +36,20 @@ const deleteUpload = function (data) {
     }
   })
 }
-
+// ajax call for API Patch with ID
+const updateUpload = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/uploads/' + data.upload.id,
+    method: 'PATCH',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
 module.exports = {
   uploadCreate,
   getUploads,
-  deleteUpload
+  deleteUpload,
+  updateUpload
 }

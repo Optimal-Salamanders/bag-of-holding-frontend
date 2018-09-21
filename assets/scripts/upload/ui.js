@@ -1,15 +1,15 @@
 'use strict'
 
 // const store = require('../store.js')
-const display = require('./../display.js')
+// const display = require('./../display.js')
 const fileListing = require('./file-listing.handlebars')
 
 const onUploadCreateSuccess = (data) => {
-  display.clearForms()
+  // display.clearForms()
 }
 
 const failure = (data) => {
-  display.clearForms()
+  // display.clearForms()
 }
 
 const onGetUploadsSuccess = function (data) {
@@ -19,15 +19,22 @@ const onGetUploadsSuccess = function (data) {
 }
 
 const onGetUploadsFailure = function () {
-  $('.message').html('Unable to show files.')
+  $('#message').html('Unable to show files.')
 }
 
 const onDeleteUploadSuccess = function () {
-  $('.message').html('Item Successfully Deleted')
+  $('#message').html('Item Successfully Deleted')
 }
 
 const onDeleteUploadFailure = function () {
-  $('.message').html('Delete went wrong')
+  $('#message').html('Delete went wrong')
+}
+const onUpdateUploadSuccess = function () {
+  $('#message').html('Item Successfully Updated')
+}
+
+const onUpdateUploadFailure = function () {
+  $('#message').html('Update went wrong')
 }
 module.exports = {
   onUploadCreateSuccess,
@@ -35,5 +42,7 @@ module.exports = {
   onGetUploadsSuccess,
   onGetUploadsFailure,
   onDeleteUploadSuccess,
-  onDeleteUploadFailure
+  onDeleteUploadFailure,
+  onUpdateUploadSuccess,
+  onUpdateUploadFailure
 }
