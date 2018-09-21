@@ -64,6 +64,10 @@ const onUpdateUploadFailure = function () {
 const clearForms = () => {
   $('input').val('')
 }
+
+const convertDate = function (date) {
+
+}
 module.exports = {
   onUploadCreateSuccess,
   failure,
