@@ -1,6 +1,6 @@
 'use strict'
 
-// const store = require('../store.js')
+const store = require('../store.js')
 // const display = require('./../display.js')
 const fileListing = require('./file-listing.handlebars')
 
@@ -21,8 +21,14 @@ const onGetUploadsSuccess = function (data) {
   clearForms()
 
   console.log('data dot uploads is ', data.uploads)
+  console.log('store user id is ', store.user._id)
+
   for (let i = 0; i < data.uploads.length; i++) {
-    console.log('data owner is ', data.uploads[i]._id)
+    console.log('data uploads owner is ', data.uploads[i].owner)
+
+    if (data.uploads[i].owner === store.user._id) {
+
+    }
   }
 
 }
