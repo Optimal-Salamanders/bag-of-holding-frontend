@@ -1,116 +1,207 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Bag of Holding</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Bag of Holding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <h1>Bag of Holding</h1>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <div class="logged-out-forms">
-        <!-- Sign up form -->
-        <div>
-          <form id="sign-up" class="form-auth">
-            <fieldset>
-              <input class="auth-input" type ="email" name="credentials[email]" placeholder="Email">
-              <input class="auth-input" type ="password" name="credentials[password]" placeholder="Password">
-              <input class="auth-input" type ="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-              <button type="submit" class="btn btn-primary">Sign up</button>
-            </fieldset>
-          </form>
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+</head>
+
+<body>
+  <div class="container-fluid bg-dark py-5">
+    <!-- <div class="row"> -->
+    <div class="col-md-9 mx-auto">
+      <div class="card card-body">
+        <h2 class="text-center mb-6">Bag of Holding</h2>
+        <div class="logged-out-forms">
+          <!-- Sign up form -->
+          <div>
+            <form id="sign-up" class="form-auth">
+              <fieldset>
+                <input class="auth-input" type="email" name="credentials[email]" placeholder="Email">
+                <input class="auth-input" type="password" name="credentials[password]" placeholder="Password">
+                <input class="auth-input" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                <button type="submit" class="btn btn-primary">Sign up</button>
+              </fieldset>
+            </form>
+            <!-- Sign in form -->
+            <div>
+              <form id="sign-in" class="form-auth">
+                <fieldset>
+                  <input class="auth-input" type="email" name="credentials[email]" placeholder="Email">
+                  <input class="auth-input" type="password" name="credentials[password]" placeholder="Password">
+                  <button type="submit" class="btn btn-primary">Sign in</button>
+                </fieldset>
+              </form>
+              <div class="checkbox">
+                <label class="small">
+              <input name="terms" type="checkbox">I have read and agree to the <a href="http://www.dailyconversions.com/internet-marketing/who-said-terms-of-service-agreements-cant-be-funny/" target="_blank">terms of service</a>
+            </label>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <!-- Sign in form -->
-        <div>
-          <form id="sign-in" class="form-auth">
-            <fieldset>
-              <input class="auth-input" type ="email" name="credentials[email]" placeholder="Email">
-              <input class="auth-input" type ="password" name="credentials[password]" placeholder="Password">
-              <button type="submit" class="btn btn-primary">Sign in</button>
-            </fieldset>
-          </form>
-        </div>
-
       </div>
-
+    </div>
+  </div>
+  <div class="container-fluid bg-dark py-5">
+    <div class="col-md-6 mx-auto">
       <div class="logged-in-forms">
-        <!-- Change pw -->
-        <form id="password-change">
-          <fieldset>
-              <input class="auth-input" id="change-pw-old" type ="password" name="passwords[old]" placeholder="Old password">
-              <input class="auth-input" type ="password" name="passwords[new]" placeholder="New password">
-              <button type="submit" class="btn btn-primary">Update password</button>
-          </fieldset>
-        </form>
+        <div class="card card-body">
+          <!-- Change pw -->
+          <form id="password-change">
+            <fieldset>
+              <input class="auth-input" id="change-pw-old" type="password" name="passwords[old]" placeholder="Old password">
+              <input class="auth-input" type="password" name="passwords[new]" placeholder="New password">
+              <button type="submit" class="btn-small btn-primary">Update password</button>
+            </fieldset>
 
-        <!-- Logout button-->
-        <button id="sign-out" type="submit" class="btn-small btn-danger hidden">Logout</button>
+
+            <!-- Logout button-->
+            <button id="sign-out" type="submit" class="btn-small btn-danger">Logout</button>
+          </form>
+        </div>
       </div>
-
-      <!-- Error message Auth -->
-      <div id="message"></div>
-
+    </div>
+  </div>
+  <!-- Error message Auth -->
+  <div class="container-fluid bg-dark py-5">
+    <div class="col-md-6 mx-auto">
+      <div class="card card-body">
+        <div class="text-center" id="message">Welcome Stranger</div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid bg-dark py-5">
+    <div class="col-md-6 mx-auto">
       <!-- Main signed-in wrapper -->
-      <div id="main-wrapper">
+      <div class="text-center" id="main-wrapper">
+        <div class="card card-body">
+          <!-- Upload file form -->
+          <form action="/uploads" method="post" enctype="multipart/form-data" id="upload-form">
+            <fieldset>
+              <legend>Image uploader</legend>
+              <input type="text" name="title" pattern="[a-zA-Z0-9-\s]+" placeholder="file name" required>
+              <input type="text" name="tag" pattern="[a-zA-Z0-9-\s]+" placeholder="file tag">
+              <input type="file" name="image">
+              <button type="submit" value="Upload">submit</button>
+            </fieldset>
 
-        <!-- Upload file form -->
-        <form action="/uploads" method="post" enctype="multipart/form-data" id="upload-form">
-          <fieldset>
-            <legend>Image uploader</legend>
-            <input type ="text" name="title" pattern="[a-zA-Z0-9-\s]+" placeholder ="file name" required>
-            <input type ="text" name="tag" pattern="[a-zA-Z0-9-\s]+" placeholder ="file tag">
-            <input type="file" name="image">
-            <button type="submit" value="Upload">submit</button>
-          </fieldset>
-        </form>
-        <!-- button to display file uploads -->
+            <!-- button to display file uploads -->
 
 
             <legend>View Files</legend>
             <button id="index" type="button" class="btn-small btn-primary" value="index">View</button>
-
+          </form>
 
           <!-- button to delete item with field -->
-        <form id="delete">
-          <fieldset>
-            <legend>Delete File</legend>
-          <input class="delete-input" type ="id" pattern="[a-zA-Z0-9-\s]+" name="upload[id]" placeholder="Upload ID">
-          <button type="submit" class="btn-small btn-primary" value="delete">Delete file</button>
-          </fieldset>
-        </form>
-        <!-- form fields for updates for now -->
-        <form id="update">
-          <fieldset>
-            <legend>Update title and tag</legend>
-            <input type ="text" pattern="[a-zA-Z0-9-\s]+" name="upload[title]" placeholder ="file name">
-            <input type ="text" pattern="[a-zA-Z0-9-\s]+" name="upload[tag]" placeholder ="file tag">
-            <input type ="text" pattern="[a-zA-Z0-9-\s]+" name="upload[id]" placeholder ="item ID">
-            <button type="submit" value="Update">submit</button>
-          </fieldset>
-        </form>
+          <form id="delete">
+            <fieldset>
+              <legend>Delete File</legend>
+              <input class="delete-input" type="id" pattern="[a-zA-Z0-9-\s]+" name="upload[id]" placeholder="Upload ID">
+              <button type="submit" class="btn-small btn-primary" value="delete">Delete file</button>
+            </fieldset>
+          </form>
+          <!-- form fields for updates for now -->
+          <form id="update">
+            <fieldset>
+              <legend>Update title and tag</legend>
+              <input type="text" pattern="[a-zA-Z0-9-\s]+" name="upload[title]" placeholder="file name">
+              <input type="text" pattern="[a-zA-Z0-9-\s]+" name="upload[tag]" placeholder="file tag">
+              <input type="text" pattern="[a-zA-Z0-9-\s]+" name="upload[id]" placeholder="item ID">
+              <button type="submit" value="Update">submit</button>
+            </fieldset>
+          </form>
+          <!-- Display USER uploads  -->
+          <div class="user-uploads">
+            <h4>Your uploads:</h4>
+            <div class="display-user"></div>
+          </div>
+          <!-- Display ALL uploads  -->
+          <div class="all-uploads">
+            <h4>All uploads:</h4>
+            <div class="display-all"></div>
+          </div>
 
-       <!-- Display USER uploads  -->
-       <div class="user-uploads">
-         <h4>Your uploads:</h4>
-         <div class="display-user"></div>
-       </div>
-
-       <!-- Display ALL uploads  -->
-       <div class="all-uploads">
-         <h4>All uploads:</h4>
-         <div class="display-all"></div>
+          <!-- end main wrapper   -->
+        </div>
       </div>
+    </div>
+  </div>
+  <!-- Contact Section -->
 
-      <!-- end main wrapper   -->
+  <!-- <div class="container-fluid bg-dark py-5"> -->
+  <!-- <div class="row"> -->
+  <!-- <div class="col-md-9 mx-auto">
+        <div class="card card-body"> -->
+  <!-- Footer -->
+  <footer class="bg-black small text-center text-black-50">
+    <section class="contact-section bg-black">
+      <div class="container-fluid bg-dark py-5">
+        <!-- <div class="row"> -->
+        <div class="col-md-9 mx-auto">
+          <div class="card py-4 h-100">
+            <div class="card-body text-center">
+              <h4 class="text-center m-0">Tech Stack Used</h4>
+              <hr class="my-4">
+              <button type="button" class="btn btn-secondary">Github</button>
+              <button type="button" class="btn btn-primary">Mongo</button>
+              <button type="button" class="btn btn-info">Mongoose</button>
+              <button type="button" class="btn btn-success">Express</button>
+              <button type="button" class="btn btn-warning">Javascript</button>
+              <button type="button" class="btn btn-danger">Bootstrap</button>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="container-fluid bg-dark py-5">
+        <div class="col-md-9 mx-auto">
+          <div class="card py-4 h-100">
+            <div class="card-body text-center">
+              <h4 class="text-center m-0">Contributor Github Accounts</h4>
+              <hr class="my-4">
+              <div class="large text-black-50">
+                <a href="https://github.com/Denchou" target="_blank">denchou</a>
+                <div class="large text-black-50">
+                  <a href="https://github.com/trybick" target="_blank">trybick</a>
+                  <div class="large text-black-50">
+                    <a href="https://github.com/b3m1ch4" target="_blank">micha</a>
+                    <div class="large text-black-50">
+                      <a href="https://github.com/mmunier44" target="_blank">mmunier44</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- <div class="col-md-4 mb-3 mb-md-0">
+          <div class="card py-4 h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-mobile-alt text-primary mb-2"></i>
+              <h4 class="text-center m-0">Phone</h4>
+              <hr class="my-4">
+              <div class="small text-black-50">+1 (555) 902-8832</div>
+            </div>
+          </div>
+        </div>
+      </div> -->
 
 
-    </body>
+      <div class="container text-white">
+        Copyright &copy; Courtesy of DEN TIM MICHAEL MIKE 2018
+      </div>
+    </section>
+  </footer>
+
+
+</body>
+
 </html>

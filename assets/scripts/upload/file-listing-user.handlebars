@@ -3,7 +3,8 @@
 
 
     <section data-id="{{file._id}}" class="container-fluid">
-      <div class="card text-center text-white bg-primary mb-1">
+      <div class="card-deck">
+      <div class="card text-center text-white bg-primary mb-1" style="max-width: 20rem;">
           <div class="card-header">
             <h2 class="topic">TITLE: {{file.title}}</h2>
           </div>
@@ -23,6 +24,7 @@
       <div class="card-footer">
       </div>
     </div>
+  </div>
   </section>
 {{/each}}
 {{else}}
