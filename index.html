@@ -19,24 +19,27 @@
               <h2 class="text-center mb-6 page-title">Bag of Holding</h2>
               <div class="logged-out-forms">
                 <!-- Sign up form -->
-                <div>
+                <!-- collapsable buttons for sign in and sign out -->
+                    <button id="ca" class="update btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSignUp" aria-expanded="false" aria-controls="collapseSignUp">Create Account</button>
+                    <button id="si" class="update btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSignIn" aria-expanded="false" aria-controls="collapseSignIn">Sign In</button>
+                  <div class="collapse landpage col-12 flex-row-reverse" id="collapseSignUp">
                   <form id="sign-up" class="form-auth">
                     <fieldset>
                       <input class="auth-input" type="email" name="credentials[email]" placeholder="Email">
                       <input class="auth-input" type="password" name="credentials[password]" placeholder="Password">
                       <input class="auth-input" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-                      <button type="submit" class="btn btn-info">Sign up</button>
+                      <button type="submit" class=" btn-success btn btn-info">Sign up</button>
                     </fieldset>
                   </form>
-        </div>
+                </div>
 
         <!-- Sign in form -->
-        <div>
+          <div class="collapse landpage col-12 flex-row-reverse" id="collapseSignIn">
           <form id="sign-in" class="form-auth">
             <fieldset>
               <input class="auth-input" type ="email" name="credentials[email]" placeholder="Email">
               <input class="auth-input" type ="password" name="credentials[password]" placeholder="Password">
-              <button type="submit" class="btn btn-info">Sign in</button>
+              <button type="submit" class="btn-success btn btn-info">Sign in</button>
             </fieldset>
           </form>
         </div>
@@ -84,31 +87,29 @@
         <!-- Upload file form -->
         <form action="/uploads" method="post" enctype="multipart/form-data" id="upload-form">
           <fieldset>
-            <legend>File uploader</legend>
-            <input type ="text" name="title" pattern="[a-zA-Z0-9-\s]+" placeholder ="Enter name" required>
-            <input type ="text" name="tag" pattern="[a-zA-Z0-9-\s]+" placeholder ="Enter tag">
+            <legend>Stash Your Loot</legend>
+            <input type ="text" name="title" pattern="[a-zA-Z0-9-\s]+" placeholder ="Name Your Loot" required>
+            <input type ="text" name="tag" pattern="[a-zA-Z0-9-\s]+" placeholder ="Describe Your Loot">
             <label class="btn btn-primary btn-sm">
-              Browse<input type="file" name="image" style="display: none">
+            Locate your Loot<input type="file" name="image" style="display: none">
             </label>
-            <button class="btn btn-success btn-sm" type="submit" value="Upload">Upload</button>
+            <button class="btn btn-success btn-sm" type="submit" value="Upload">Stash It!</button>
           </fieldset>
         </form>
         <!-- button to display file uploads -->
 
 
             <!-- <legend>View Files</legend> -->
-            <button id="index" type="button" class="btn btn-info btn-lg files-section" value="index">View files</button>
+            <button id="index" type="button" class="btn btn-info btn-lg files-section" value="index">Check Out The Hoarde</button>
 
 
        <!-- Display USER uploads  -->
        <div class="user-uploads">
-         <h4 class="files-section files-title">Your uploads:</h4>
          <div class="display display-user"></div>
        </div>
 
        <!-- Display ALL uploads  -->
        <div class="all-uploads">
-         <h4 class="files-section files-title">All uploads:</h4>
          <div class="display display-all"></div>
       </div>
     </div>

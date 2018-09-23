@@ -1,20 +1,21 @@
+   <h4>Your Bag</h4>
 {{#if files.length}}
 {{#each files as |file|}}
 
 
     <section data-id="{{file._id}}" class="container-fluid">
       <div class="card-deck">
-      <div class="card text-center text-white bg-primary mb-1" style="max-width: 20rem;">
+      <div class="card text-center text-white bg-primary mb-1" style="max-width: 40rem;">
           <div class="card-header">
-            <h2 class="topic">Name: <span>{{file.title}}</span></h2>
-            <p class="card-text">Tag: <span>{{file.tag}}</span></p>
+            <h2 class="topic"><span>{{file.title}}</span></h2>
+
           </div>
 
       <div class="card-body">
-
+          <p class="card-text"><span>{{file.tag}}</span></p>
       </div>
 
-      <div><a href="{{file.url}}" target="_blank"><button class='btn btn-secondary'>DOWNLOAD</button></a></div>
+      <div><a href="{{file.url}}" target="_blank"><button class='btn btn-secondary'>Retrieve Loot</button></a></div>
       <div class="text-bottom">
         Created: {{file.createdAt}}
       </div>
@@ -26,9 +27,9 @@
         <button class="update btn btn-light" type="button" data-toggle="collapse" data-target="#collapse{{file._id}}" aria-expanded="false" aria-controls="collapse{{file._id}}">Update</button>
         <div class="collapse landpage col-12 flex-row-reverse" id="collapse{{file._id}}">
           <form id="{{file._id}}">
-            <input type ="text" pattern="[a-zA-Z0-9-\s]+" name="upload[title]" placeholder ="update name">
-            <input type ="text" pattern="[a-zA-Z0-9-\s]+" name="upload[tag]" placeholder ="update description">
-            <button type="submit" class='btn btn-success'>Submit</button>
+            <input type ="text" pattern="[a-zA-Z0-9-\s]+" name="upload[title]" placeholder ="{{file.title}}">
+            <input type ="text" pattern="[a-zA-Z0-9-\s]+" name="upload[tag]" placeholder ="{{file.tag}}">
+            <button type="submit" class='btn btn-success'>Submit Changes</button>
           </form>
         </div>
       </div>
@@ -37,5 +38,5 @@
   </section>
 {{/each}}
 {{else}}
-<p>There are no files</p>
+<p>Your bag of holding is empty.</p>
 {{/if}}

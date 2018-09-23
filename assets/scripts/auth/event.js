@@ -55,6 +55,8 @@ const handlers = () => {
   $('#sign-in').on('submit', onSignInEvent)
   $('#sign-out').on('click', onSignOutEvent)
   $('#password-change').on('submit', onPasswordChangeEvent)
+  $('#ca').on('click', () => $('#collapseSignIn').collapse('hide'))
+  $('#si').on('click', () => $('#collapseSignUp').collapse('hide'))
 }
 
 module.exports = {

@@ -6,12 +6,12 @@ const fileListing = require('./file-listing.handlebars')
 const fileListingUser = require('./file-listing-user.handlebars')
 
 const onUploadCreateSuccess = (data) => {
-  $('#message').html('Item Successfully Uploaded')
+  $('#message').html('Loot successfully stashed away!')
   clearForms()
 }
 
 const failure = (data) => {
-  $('#message').html('Generic Failure')
+  $('#message').html('Something failed!')
   clearForms()
 }
 
@@ -46,27 +46,27 @@ const onGetUploadsSuccess = function (data) {
 }
 
 const onGetUploadsFailure = function () {
-  $('#message').html('Unable to show files.')
+  $('#message').html('There was a problem retrieving your loot!')
   clearForms()
 }
 
 const onDeleteUploadSuccess = function () {
-  $('#message').html('Item Successfully Deleted')
+  $('#message').html('You disposed of your loot!')
   clearForms()
 }
 
 const onDeleteUploadFailure = function () {
-  $('#message').html('Delete went wrong')
+  $('#message').html('Unable to dispose of loot! A curse?!')
   clearForms()
 }
 const onUpdateUploadSuccess = function () {
   // $('.display').html('')
-  $('#message').html('Item Successfully Updated')
+  $('#message').html('Loot information updated!')
   clearForms()
 }
 
 const onUpdateUploadFailure = function () {
-  $('#message').html('Update went wrong')
+  $('#message').html('Your bag was unresponsive! Bad bag!')
   clearForms()
 }
 
