@@ -24,6 +24,8 @@ const onGetUploadsSuccess = function (data) {
     x.updatedAt = updateDate.substring(0, updateDate.indexOf('G'))
   })
 
+  store.uploads = data.uploads
+
   const showFileListing = fileListing({files: data.uploads})
   $('.display-all').append(showFileListing)
   clearForms()
