@@ -1,8 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
 
-@import url('https://fonts.googleapis.com/css?family=Archivo|Roboto');
-
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif|Roboto');
 
 body {
   font-family: 'Roboto', sans-serif;
+}
+
+.page-title{
+  font-family: 'Bree Serif', serif;
 }
