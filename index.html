@@ -12,19 +12,22 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Bag of Holding</h1>
-
-      <div class="logged-out-forms">
-        <!-- Sign up form -->
-        <div>
-          <form id="sign-up" class="form-auth">
-            <fieldset>
-              <input class="auth-input" type ="email" name="credentials[email]" placeholder="Email">
-              <input class="auth-input" type ="password" name="credentials[password]" placeholder="Password">
-              <input class="auth-input" type ="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-              <button type="submit" class="btn btn-info">Sign up</button>
-            </fieldset>
-          </form>
+      <div class="container-fluid bg-dark py-5">
+          <!-- <div class="row"> -->
+          <div class="col-md-9 mx-auto">
+            <div class="card card-body">
+              <h2 class="text-center mb-6">Bag of Holding</h2>
+              <div class="logged-out-forms">
+                <!-- Sign up form -->
+                <div>
+                  <form id="sign-up" class="form-auth">
+                    <fieldset>
+                      <input class="auth-input" type="email" name="credentials[email]" placeholder="Email">
+                      <input class="auth-input" type="password" name="credentials[password]" placeholder="Password">
+                      <input class="auth-input" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                      <button type="submit" class="btn btn-info">Sign up</button>
+                    </fieldset>
+                  </form>
         </div>
 
         <!-- Sign in form -->
@@ -36,11 +39,23 @@
               <button type="submit" class="btn btn-info">Sign in</button>
             </fieldset>
           </form>
+          <div class="checkbox">
+            <label class="small">
+              <input name="terms" type="checkbox">I have read and agree to the <a href="http://www.dailyconversions.com/internet-marketing/who-said-terms-of-service-agreements-cant-be-funny/" target="_blank">terms of service</a>
+          </label>
+          </div>
+
         </div>
 
       </div>
+    </div>
+  </div>
+</div>
 
+<div class="container-fluid bg-dark py-5">
+  <div class="col-md-6 mx-auto">
       <div class="logged-in-forms">
+        <div class="card card-body">
         <!-- Change pw -->
         <form id="password-change">
           <fieldset>
@@ -48,35 +63,48 @@
               <input class="auth-input" type ="password" name="passwords[new]" placeholder="New password">
               <button type="submit" class="btn-small btn-secondary">Update password</button>
           </fieldset>
-        </form>
+
 
         <!-- Logout button-->
         <button id="sign-out" type="submit" class="btn-small btn-danger hidden">Logout</button>
+        </form>
       </div>
+    </div>
+  </div>
+</div>
 
       <!-- Error message Auth -->
-      <div id="message"></div>
+      <div class="container-fluid bg-dark py-5">
+        <div class="col-md-6 mx-auto">
+          <div class="card card-body">
+            <div class="text-center" id="message">Welcome Stranger</div>
+          </div>
+        </div>
+      </div>
 
+      <div class="container-fluid bg-dark py-5">
+        <div class="col-md-6 mx-auto">
       <!-- Main signed-in wrapper -->
-      <div id="main-wrapper">
-
+      <div class="text-center" id="main-wrapper">
+        <div class="card card-body">
         <!-- Upload file form -->
         <form action="/uploads" method="post" enctype="multipart/form-data" id="upload-form">
           <fieldset>
             <legend>File uploader</legend>
             <input type ="text" name="title" pattern="[a-zA-Z0-9-\s]+" placeholder ="Enter name" required>
             <input type ="text" name="tag" pattern="[a-zA-Z0-9-\s]+" placeholder ="Enter tag">
-            <label class="btn btn-primary">
+            <label class="btn btn-primary btn-sm">
               Browse<input type="file" name="image" style="display: none">
             </label>
-            <button class="btn btn-success btn-lg" type="submit" value="Upload">Upload</button>
+            <button class="btn btn-success btn-sm" type="submit" value="Upload">Upload</button>
           </fieldset>
         </form>
         <!-- button to display file uploads -->
 
 
             <!-- <legend>View Files</legend> -->
-            <button id="index" type="button" class="btn btn-info" value="index">View files</button>
+            <button id="index" type="button" class="btn btn-info btn-lg" value="index">View files</button>
+
 
        <!-- Display USER uploads  -->
        <div class="user-uploads">
@@ -89,10 +117,62 @@
          <h4>All uploads:</h4>
          <div class="display display-all"></div>
       </div>
-
+    </div>
+  </div>
+</div>
+</div>
       <!-- end main wrapper   -->
-      </div>
 
+
+      <footer class="bg-black small text-center text-black-50">
+        <section class="contact-section bg-black">
+          <div class="container-fluid bg-dark py-5">
+            <!-- <div class="row"> -->
+            <div class="col-md-9 mx-auto">
+              <div class="card py-4 h-100">
+                <div class="card-body text-center">
+                  <h4 class="text-center m-0">Tech Stack Used</h4>
+                  <hr class="my-4">
+                  <button type="button" class="btn btn-primary">Mongo</button>
+                  <button type="button" class="btn btn-info">Mongoose</button>
+                  <button type="button" class="btn btn-success">Express</button>
+                  <button type="button" class="btn btn-warning">Javascript</button>
+                  <button type="button" class="btn btn-danger">Bootstrap</button>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="container-fluid bg-dark py-5">
+            <div class="col-md-9 mx-auto">
+              <div class="card py-4 h-100">
+                <div class="card-body text-center">
+                  <h4 class="text-center m-0">Contributor Github Accounts</h4>
+                  <hr class="my-4">
+                  <div class="large text-black-50">
+                    <a href="https://github.com/Denchou" target="_blank">denchou</a>
+                    <div class="large text-black-50">
+                      <a href="https://github.com/trybick" target="_blank">trybick</a>
+                      <div class="large text-black-50">
+                        <a href="https://github.com/b3m1ch4" target="_blank">micha</a>
+                        <div class="large text-black-50">
+                          <a href="https://github.com/mmunier44" target="_blank">mmunier44</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          <div class="container text-white">
+            Copyright &copy; Courtesy of DEN TIM MICHAEL MIKE 2018
+          </div>
+
+      </section>
+    </footer>
 
     </body>
 </html>
