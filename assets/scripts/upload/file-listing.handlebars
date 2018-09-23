@@ -4,14 +4,14 @@
 
     <section data-id="{{file._id}}" class="container-fluid">
       <div class="card-deck">
-      <div class="card text-center text-white bg-primary mb-1" style="max-width: 20rem;">
+      <div class="card text-center text-white bg-primary mb-1" style="max-width: 40rem;">
           <div class="card-header">
-            <h2 class="topic">Name: {{file.title}}</h2>
-            <p class="card-text">Tag: {{file.tag}}</p>
+            <h2 class="topic">{{file.title}}</h2>
+
           </div>
 
       <div class="card-body">
-
+        <p class="card-text">{{file.tag}}</p>
       </div>
 
       <div>Owner: {{file.owner}}</div>

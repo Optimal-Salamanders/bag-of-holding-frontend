@@ -19,6 +19,7 @@
               <h2 class="text-center mb-6 page-title">Bag of Holding</h2>
               <div class="logged-out-forms">
                 <!-- Sign up form -->
+                <!-- collapsable buttons for sign in and sign out -->
                 <div>
                   <form id="sign-up" class="form-auth">
                     <fieldset>
@@ -28,7 +29,7 @@
                       <button type="submit" class="btn btn-info">Sign up</button>
                     </fieldset>
                   </form>
-        </div>
+                </div>
 
         <!-- Sign in form -->
         <div>
@@ -85,8 +86,8 @@
         <form action="/uploads" method="post" enctype="multipart/form-data" id="upload-form">
           <fieldset>
             <legend>File uploader</legend>
-            <input type ="text" name="title" pattern="[a-zA-Z0-9-\s]+" placeholder ="Enter name" required>
-            <input type ="text" name="tag" pattern="[a-zA-Z0-9-\s]+" placeholder ="Enter tag">
+            <input type ="text" name="title" pattern="[a-zA-Z0-9-\s]+" placeholder ="Name your File" required>
+            <input type ="text" name="tag" pattern="[a-zA-Z0-9-\s]+" placeholder ="Optional Description">
             <label class="btn btn-primary btn-sm">
               Browse<input type="file" name="image" style="display: none">
             </label>
