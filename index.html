@@ -16,7 +16,7 @@
           <!-- <div class="row"> -->
           <div class="col-md-9 mx-auto">
             <div class="card card-body">
-              <h2 class="text-center mb-6">Bag of Holding</h2>
+              <h2 class="text-center mb-6 page-title">Bag of Holding</h2>
               <div class="logged-out-forms">
                 <!-- Sign up form -->
                 <div>
@@ -55,12 +55,12 @@
           <fieldset>
               <input class="auth-input" id="change-pw-old" type ="password" name="passwords[old]" placeholder="Old password">
               <input class="auth-input" type ="password" name="passwords[new]" placeholder="New password">
-              <button type="submit" class="btn-small btn-secondary">Update password</button>
+              <button type="submit" class="btn btn-secondary">Update password</button>
           </fieldset>
 
 
         <!-- Logout button-->
-        <button id="sign-out" type="submit" class="btn-small btn-danger hidden">Logout</button>
+        <button id="sign-out" type="submit" class="btn btn-danger hidden">Logout</button>
         </form>
       </div>
     </div>
@@ -97,18 +97,18 @@
 
 
             <!-- <legend>View Files</legend> -->
-            <button id="index" type="button" class="btn btn-info btn-lg" value="index">View files</button>
+            <button id="index" type="button" class="btn btn-info btn-lg files-section" value="index">View files</button>
 
 
        <!-- Display USER uploads  -->
        <div class="user-uploads">
-         <h4>Your uploads:</h4>
+         <h4 class="files-section files-title">Your uploads:</h4>
          <div class="display display-user"></div>
        </div>
 
        <!-- Display ALL uploads  -->
        <div class="all-uploads">
-         <h4>All uploads:</h4>
+         <h4 class="files-section files-title">All uploads:</h4>
          <div class="display display-all"></div>
       </div>
     </div>

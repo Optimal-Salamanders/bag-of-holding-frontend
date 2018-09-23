@@ -17,6 +17,7 @@ const failure = (data) => {
 
 const onGetUploadsSuccess = function (data) {
   $('.display-all').html('')
+  $('.files-title').show()
   data.uploads.map(x => {
     const createDate = new Date(x.createdAt).toString()
     const updateDate = new Date(x.updatedAt).toString()
