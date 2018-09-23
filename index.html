@@ -12,105 +12,141 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Bag of Holding</h1>
-
-      <div class="logged-out-forms">
-        <!-- Sign up form -->
-        <div>
-          <form id="sign-up" class="form-auth">
-            <fieldset>
-              <input class="auth-input" type ="email" name="credentials[email]" placeholder="Email">
-              <input class="auth-input" type ="password" name="credentials[password]" placeholder="Password">
-              <input class="auth-input" type ="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-              <button type="submit" class="btn btn-primary">Sign up</button>
-            </fieldset>
-          </form>
-        </div>
+      <div class="container-fluid bg-dark py-5">
+          <!-- <div class="row"> -->
+          <div class="col-md-6 mx-auto">
+            <div class="card card-body">
+              <h2 class="text-center mb-6 page-title">Bag of Holding</h2>
+              <div class="logged-out-forms">
+                <!-- Sign up form -->
+                <!-- collapsable buttons for sign in and sign out -->
+                    <button id="ca" class="update btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSignUp" aria-expanded="false" aria-controls="collapseSignUp">Create Account</button>
+                    <button id="si" class="update btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSignIn" aria-expanded="false" aria-controls="collapseSignIn">Sign In</button>
+                  <div class="collapse landpage col-12 flex-row-reverse" id="collapseSignUp">
+                  <form id="sign-up" class="form-auth">
+                    <fieldset>
+                      <input class="auth-input" type="email" name="credentials[email]" placeholder="Email">
+                      <input class="auth-input" type="password" name="credentials[password]" placeholder="Password">
+                      <input class="auth-input" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                      <button type="submit" class=" btn-success btn btn-info">Sign up</button>
+                    </fieldset>
+                  </form>
+                </div>
 
         <!-- Sign in form -->
-        <div>
+          <div class="collapse landpage col-12 flex-row-reverse" id="collapseSignIn">
           <form id="sign-in" class="form-auth">
             <fieldset>
               <input class="auth-input" type ="email" name="credentials[email]" placeholder="Email">
               <input class="auth-input" type ="password" name="credentials[password]" placeholder="Password">
-              <button type="submit" class="btn btn-primary">Sign in</button>
+              <button type="submit" class="btn-success btn btn-info">Sign in</button>
             </fieldset>
           </form>
         </div>
 
       </div>
+    </div>
+  </div>
+</div>
 
+<div class="container-fluid bg-dark py-5">
+  <div class="col-md-6 mx-auto">
       <div class="logged-in-forms">
+        <div class="card card-body">
         <!-- Change pw -->
         <form id="password-change">
           <fieldset>
               <input class="auth-input" id="change-pw-old" type ="password" name="passwords[old]" placeholder="Old password">
               <input class="auth-input" type ="password" name="passwords[new]" placeholder="New password">
-              <button type="submit" class="btn btn-primary">Update password</button>
+              <button type="submit" class="btn btn-secondary">Update password</button>
           </fieldset>
-        </form>
+
 
         <!-- Logout button-->
-        <button id="sign-out" type="submit" class="btn-small btn-danger hidden">Logout</button>
+        <button id="sign-out" type="submit" class="btn btn-danger hidden">Logout</button>
+        </form>
       </div>
+    </div>
+  </div>
+</div>
 
       <!-- Error message Auth -->
-      <div id="message"></div>
+      <div class="container-fluid bg-dark py-5">
+        <div class="col-md-6 mx-auto">
+          <div class="card card-body">
+            <div class="text-center" id="message">Welcome Stranger</div>
+          </div>
+        </div>
+      </div>
 
+      <div class="container-fluid bg-dark py-5">
+        <div class="col-md-6 mx-auto">
       <!-- Main signed-in wrapper -->
-      <div id="main-wrapper">
-
+      <div class="text-center" id="main-wrapper">
+        <div class="card card-body">
         <!-- Upload file form -->
         <form action="/uploads" method="post" enctype="multipart/form-data" id="upload-form">
           <fieldset>
-            <legend>Image uploader</legend>
-            <input type ="text" name="title" pattern="[a-zA-Z0-9-\s]+" placeholder ="file name" required>
-            <input type ="text" name="tag" pattern="[a-zA-Z0-9-\s]+" placeholder ="file tag">
-            <input type="file" name="image">
-            <button type="submit" value="Upload">submit</button>
+            <legend>Stash Your Loot</legend>
+            <input type ="text" name="title" pattern="[a-zA-Z0-9-\s]+" placeholder ="Name Your Loot" required>
+            <input type ="text" name="tag" pattern="[a-zA-Z0-9-\s]+" placeholder ="Describe Your Loot">
+            <label class="btn btn-primary btn-sm">
+            Locate your Loot<input type="file" name="image" style="display: none">
+            </label>
+            <button class="btn btn-success btn-sm" type="submit" value="Upload">Stash It!</button>
           </fieldset>
         </form>
         <!-- button to display file uploads -->
 
 
-            <legend>View Files</legend>
-            <button id="index" type="button" class="btn-small btn-primary" value="index">View</button>
+            <!-- <legend>View Files</legend> -->
+            <button id="index" type="button" class="btn btn-info btn-lg files-section" value="index">Check Out The Hoard</button>
 
-
-          <!-- button to delete item with field -->
-        <form id="delete">
-          <fieldset>
-            <legend>Delete File</legend>
-          <input class="delete-input" type ="id" pattern="[a-zA-Z0-9-\s]+" name="upload[id]" placeholder="Upload ID">
-          <button type="submit" class="btn-small btn-primary" value="delete">Delete file</button>
-          </fieldset>
-        </form>
-        <!-- form fields for updates for now -->
-        <form id="update">
-          <fieldset>
-            <legend>Update title and tag</legend>
-            <input type ="text" pattern="[a-zA-Z0-9-\s]+" name="upload[title]" placeholder ="file name">
-            <input type ="text" pattern="[a-zA-Z0-9-\s]+" name="upload[tag]" placeholder ="file tag">
-            <input type ="text" pattern="[a-zA-Z0-9-\s]+" name="upload[id]" placeholder ="item ID">
-            <button type="submit" value="Update">submit</button>
-          </fieldset>
-        </form>
 
        <!-- Display USER uploads  -->
        <div class="user-uploads">
-         <h4>Your uploads:</h4>
-         <div class="display-user"></div>
+         <div class="display display-user"></div>
        </div>
 
        <!-- Display ALL uploads  -->
        <div class="all-uploads">
-         <h4>All uploads:</h4>
-         <div class="display-all"></div>
+         <div class="display display-all"></div>
       </div>
-
+    </div>
+  </div>
+</div>
+</div>
       <!-- end main wrapper   -->
-      </div>
 
+
+      <footer class="bg-black small text-center text-black-50">
+          <div class="container-fluid bg-dark py-5">
+            <div class="col-md-6 mx-auto">
+              <div class="card py-4 h-100">
+                <div class="card-body text-center">
+                  <h4 class="text-center m-0">Contributor Github Accounts</h4>
+                  <hr class="my-4">
+                  <div class="large text-black-50">
+                    <a href="https://github.com/Denchou" target="_blank">denchou</a>
+                    <div class="large text-black-50">
+                      <a href="https://github.com/trybick" target="_blank">trybick</a>
+                      <div class="large text-black-50">
+                        <a href="https://github.com/b3m1ch4" target="_blank">micha</a>
+                        <div class="large text-black-50">
+                          <a href="https://github.com/mmunier44" target="_blank">mmunier44</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <div class="container text-white">
+            Copyright &copy; Courtesy of DEN TIM MICHAEL MIKE 2018
+          </div>
+
+    </footer>
 
     </body>
 </html>
