@@ -76,36 +76,16 @@
             <legend>View Files</legend>
             <button id="index" type="button" class="btn-small btn-primary" value="index">View</button>
 
-
-          <!-- button to delete item with field -->
-        <form id="delete">
-          <fieldset>
-            <legend>Delete File</legend>
-          <input class="delete-input" type ="id" pattern="[a-zA-Z0-9-\s]+" name="upload[id]" placeholder="Upload ID">
-          <button type="submit" class="btn-small btn-primary" value="delete">Delete file</button>
-          </fieldset>
-        </form>
-        <!-- form fields for updates for now -->
-        <form id="update">
-          <fieldset>
-            <legend>Update title and tag</legend>
-            <input type ="text" pattern="[a-zA-Z0-9-\s]+" name="upload[title]" placeholder ="file name">
-            <input type ="text" pattern="[a-zA-Z0-9-\s]+" name="upload[tag]" placeholder ="file tag">
-            <input type ="text" pattern="[a-zA-Z0-9-\s]+" name="upload[id]" placeholder ="item ID">
-            <button type="submit" value="Update">submit</button>
-          </fieldset>
-        </form>
-
        <!-- Display USER uploads  -->
        <div class="user-uploads">
          <h4>Your uploads:</h4>
-         <div class="display-user"></div>
+         <div class="display display-user"></div>
        </div>
 
        <!-- Display ALL uploads  -->
        <div class="all-uploads">
          <h4>All uploads:</h4>
-         <div class="display-all"></div>
+         <div class="display display-all"></div>
       </div>
 
       <!-- end main wrapper   -->

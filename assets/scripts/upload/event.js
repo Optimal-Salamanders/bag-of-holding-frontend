@@ -3,7 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api.js')
 const ui = require('./ui.js')
-// const store = require('../store.js')
+const store = require('../store.js')
 
 const onUploadCreate = function (event) {
   event.preventDefault()
@@ -22,19 +22,27 @@ const onGetUploads = function (event) {
 
 const onDeleteUpload = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
+  const uploadId = $(event.target).closest('section').data('id')
 
-  api.deleteUpload(data)
+  api.deleteUpload(uploadId)
     .then(api.getUploads)
     .then(ui.onGetUploadsSuccess)
     .then(ui.onDeleteUploadSuccess)
     .catch(ui.onDeleteUploadFailure)
 }
 
+const preUpdate = function (event) {
+  event.preventDefault()
+
+  const updateId = $(event.target).closest('section').data('id')
+  store.tempId = updateId
+  $(`#${updateId}`).on('submit', onUpdateUpload)
+}
+
 const onUpdateUpload = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-
+  data.upload.id = store.tempId
   api.updateUpload(data)
     .then(api.getUploads)
     .then(ui.onGetUploadsSuccess)
@@ -47,6 +55,8 @@ const handlers = () => {
   $('#index').on('click', onGetUploads)
   $('#delete').on('submit', onDeleteUpload)
   $('#update').on('submit', onUpdateUpload)
+  $('.display-user').on('click', '.delete', onDeleteUpload)
+  $('.display-user').on('click', '.update', preUpdate)
 }
 
 module.exports = {

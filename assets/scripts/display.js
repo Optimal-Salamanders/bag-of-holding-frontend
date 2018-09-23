@@ -20,6 +20,7 @@ const showSignedOut = function () {
   $('.logged-in-forms').hide()
   $('.logged-out-forms').show()
   $('#main-wrapper').hide()
+  $('.display').html('')
 }
 
 module.exports = {

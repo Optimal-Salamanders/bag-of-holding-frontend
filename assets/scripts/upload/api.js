@@ -27,9 +27,9 @@ const getUploads = function (data) {
   })
 }
 // ajax call for API delete with ID
-const deleteUpload = function (data) {
+const deleteUpload = function (id) {
   return $.ajax({
-    url: config.apiUrl + '/uploads/' + data.upload.id,
+    url: config.apiUrl + '/uploads/' + id,
     method: 'DELETE',
     headers: {
       'Authorization': 'Token token=' + store.user.token
