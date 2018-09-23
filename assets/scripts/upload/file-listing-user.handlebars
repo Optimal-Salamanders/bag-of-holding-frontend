@@ -1,3 +1,4 @@
+   <h4>Your Bag</h4>
 {{#if files.length}}
 {{#each files as |file|}}
 
@@ -14,7 +15,7 @@
           <p class="card-text"><span>{{file.tag}}</span></p>
       </div>
 
-      <div><a href="{{file.url}}" target="_blank"><button class='btn btn-secondary'>DOWNLOAD</button></a></div>
+      <div><a href="{{file.url}}" target="_blank"><button class='btn btn-secondary'>Retrieve item</button></a></div>
       <div class="text-bottom">
         Created: {{file.createdAt}}
       </div>
@@ -37,5 +38,5 @@
   </section>
 {{/each}}
 {{else}}
-<p>There are no files</p>
+<p>Your bag of holding is empty.</p>
 {{/if}}
