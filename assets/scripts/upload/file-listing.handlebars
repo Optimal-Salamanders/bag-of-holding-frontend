@@ -5,13 +5,16 @@
     <section data-id="{{file._id}}" class="container-fluid">
       <div class="card text-center text-white bg-primary mb-1">
           <div class="card-header">
-            <h2 class="topic">TITLE: {{file.title}}</h2>
+            <h2 class="topic">Name: {{file.title}}</h2>
+            <p class="card-text">Tag: {{file.tag}}</p>
           </div>
 
       <div class="card-body">
-        <p class="card-text">TAG: {{file.tag}}</p>
+
       </div>
-      <div>By: {{file.owner}}</div>
+
+      <div>Owner: {{file.owner}}</div>
+
       <div><a href="{{file.url}}" target="_blank"><button class='btn btn-secondary'>DOWNLOAD</button></a></div>
       <div class="text-bottom">
         Created: {{file.createdAt}}
@@ -19,6 +22,7 @@
       <div class="text-bottom">
         Updated: {{file.updatedAt}}
       </div>
+
       <div class="card-footer">
       </div>
     </div>

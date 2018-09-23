@@ -22,7 +22,7 @@
               <input class="auth-input" type ="email" name="credentials[email]" placeholder="Email">
               <input class="auth-input" type ="password" name="credentials[password]" placeholder="Password">
               <input class="auth-input" type ="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-              <button type="submit" class="btn btn-primary">Sign up</button>
+              <button type="submit" class="btn btn-info">Sign up</button>
             </fieldset>
           </form>
         </div>
@@ -33,7 +33,7 @@
             <fieldset>
               <input class="auth-input" type ="email" name="credentials[email]" placeholder="Email">
               <input class="auth-input" type ="password" name="credentials[password]" placeholder="Password">
-              <button type="submit" class="btn btn-primary">Sign in</button>
+              <button type="submit" class="btn btn-info">Sign in</button>
             </fieldset>
           </form>
         </div>
@@ -46,7 +46,7 @@
           <fieldset>
               <input class="auth-input" id="change-pw-old" type ="password" name="passwords[old]" placeholder="Old password">
               <input class="auth-input" type ="password" name="passwords[new]" placeholder="New password">
-              <button type="submit" class="btn btn-primary">Update password</button>
+              <button type="submit" class="btn-small btn-secondary">Update password</button>
           </fieldset>
         </form>
 
@@ -63,18 +63,20 @@
         <!-- Upload file form -->
         <form action="/uploads" method="post" enctype="multipart/form-data" id="upload-form">
           <fieldset>
-            <legend>Image uploader</legend>
-            <input type ="text" name="title" pattern="[a-zA-Z0-9-\s]+" placeholder ="file name" required>
-            <input type ="text" name="tag" pattern="[a-zA-Z0-9-\s]+" placeholder ="file tag">
-            <input type="file" name="image">
-            <button type="submit" value="Upload">submit</button>
+            <legend>File uploader</legend>
+            <input type ="text" name="title" pattern="[a-zA-Z0-9-\s]+" placeholder ="Enter name" required>
+            <input type ="text" name="tag" pattern="[a-zA-Z0-9-\s]+" placeholder ="Enter tag">
+            <label class="btn btn-primary">
+              Browse<input type="file" name="image" style="display: none">
+            </label>
+            <button class="btn btn-success btn-lg" type="submit" value="Upload">Upload</button>
           </fieldset>
         </form>
         <!-- button to display file uploads -->
 
 
-            <legend>View Files</legend>
-            <button id="index" type="button" class="btn-small btn-primary" value="index">View</button>
+            <!-- <legend>View Files</legend> -->
+            <button id="index" type="button" class="btn btn-info" value="index">View files</button>
 
        <!-- Display USER uploads  -->
        <div class="user-uploads">

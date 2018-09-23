@@ -6,12 +6,13 @@
       <div class="card text-center text-white bg-primary mb-1">
           <div class="card-header">
             <h2 class="topic">Name: <span>{{file.title}}</span></h2>
+            <p class="card-text">Tag: <span>{{file.tag}}</span></p>
           </div>
 
       <div class="card-body">
-        <p class="card-text">Description: <span>{{file.tag}}</span></p>
+
       </div>
-      <div>By: {{file.owner}}</div>
+
       <div><a href="{{file.url}}" target="_blank"><button class='btn btn-secondary'>DOWNLOAD</button></a></div>
       <div class="text-bottom">
         Created: {{file.createdAt}}
