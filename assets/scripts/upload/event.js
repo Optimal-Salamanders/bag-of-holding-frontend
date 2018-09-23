@@ -30,19 +30,22 @@ const onDeleteUpload = function (event) {
     .then(ui.onDeleteUploadSuccess)
     .catch(ui.onDeleteUploadFailure)
 }
-
+// this function prepares the update data to be submitted
 const preUpdate = function (event) {
   event.preventDefault()
-
+  // retrieves the targeted File's ID
   const updateId = $(event.target).closest('section').data('id')
+  // temporarily stores the tempId for future use
   store.tempId = updateId
+  // listener for form submittal and calls onUpdateUpload
   $(`#${updateId}`).on('submit', onUpdateUpload)
 }
 
 const onUpdateUpload = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  data.upload.id = store.tempId
+  // adds in the file's ID into the object form so user won't have to input it
+  data.upload.id = event.target.id
   api.updateUpload(data)
     .then(api.getUploads)
     .then(ui.onGetUploadsSuccess)
